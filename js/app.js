@@ -27,8 +27,17 @@ function shuffle(array) {
 // flip card function
 // Adds class open and show
 function flip (e){
-    e.target.classList.toggle('open');
-    e.target.classList.toggle('show');}
+  const vas = e.path[0];
+  if(vas.classList.contains('card')){
+      e.target.classList.toggle('open');
+      e.target.classList.toggle('show');
+}
+else if (vas.classList.contains('fa')) {
+    vas.parentElement.classList.toggle('open');
+    vas.parentElement.classList.toggle('show');
+
+}
+}
 
 
 /*
