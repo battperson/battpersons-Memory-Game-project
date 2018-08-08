@@ -66,8 +66,8 @@ h1 {
 }
 
 .deck .card.open {
-    transform: rotateY(0);
-    transition-duration: 1s;
+    transform: rotateY(3.142rad);
+    transition-duration: .5s;
     background: #02b3e4;
     cursor: default;
 }
