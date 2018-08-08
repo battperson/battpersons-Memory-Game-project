@@ -24,6 +24,11 @@ function shuffle(array) {
 
     return array;
 }
+// flip card function
+// Adds class open and show
+function flip (e){
+    e.target.classList.toggle('open');
+    e.target.classList.toggle('show');}
 
 
 /*
