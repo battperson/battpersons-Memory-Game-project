@@ -24,6 +24,11 @@ function shuffle(array) {
 
     return array;
 }
+//creating deck variable
+const deck =document.querySelector('.deck');
+//adding eventListener to code to flip cards
+deck.addEventListener('click', function	(e){flips(e);});
+
 // flip card function
 // Adds class open and show
 function flip (e){
