@@ -15,6 +15,7 @@ const fragment = document.createDocumentFragment();
 var nodesArray = shuffle([].slice.call(document.querySelectorAll('.card')));
 for (let i = 0; i < nodesArray.length; i++)
 {
+nodesArray[i].classList ='card';
 fragment.appendChild(nodesArray[i])};
 deck.innerHTML ='';
 deck.appendChild(fragment);
