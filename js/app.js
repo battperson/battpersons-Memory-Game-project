@@ -45,7 +45,7 @@ else if (vas.classList.contains('fa')) {
 }
 
 // for loop and if to compar cards
-function tryThis () {
+function compare() {
   const card =document.getElementsByClassName('card open show');
   console.log(card);
   if(card[0].firstElementChild.classList.value==card[1].firstElementChild.classList.value)
