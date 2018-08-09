@@ -27,7 +27,7 @@ function shuffle(array) {
 //creating deck variable
 const deck =document.querySelector('.deck');
 //adding eventListener to code to flip cards
-deck.addEventListener('click', function	(e){flip(e);});
+deck.addEventListener('click', function	(e){flip(e); limiter();});
 
 // flip card function
 // Adds class open and show
@@ -50,6 +50,9 @@ function unflip(){
   card[0].classList ='card';
   card[0].classList ='card';
 }
+//preventing over 2 cards being fliped and running functions
+function limiter (){
+if(card.length ==2){setTimeout(compare,500)}}
 // for loop and if to compar cards
 function compare() {
   if(card[0].firstElementChild.classList.value==card[1].firstElementChild.classList.value)
