@@ -43,11 +43,15 @@ else if (vas.classList.contains('fa')) {
 
 }
 }
-
+//declare card var
+const card =document.getElementsByClassName('card open show');
+//unflip function
+function unflip(){
+  card[0].classList ='card';
+  card[0].classList ='card';
+}
 // for loop and if to compar cards
 function compare() {
-  const card =document.getElementsByClassName('card open show');
-  console.log(card);
   if(card[0].firstElementChild.classList.value==card[1].firstElementChild.classList.value)
     {
       //adding  match class
@@ -55,8 +59,8 @@ function compare() {
       card[0].classList ='card match';
   }
   else{
-    card[0].classList ='card';
-    card[0].classList ='card';}
+    unflip();
+    }
 }
 /*
  * set up the event listener for a card. If a card is clicked:
