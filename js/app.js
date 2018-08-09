@@ -44,7 +44,20 @@ else if (vas.classList.contains('fa')) {
 }
 }
 
-
+// for loop and if to compar cards
+function tryThis () {
+  const card =document.getElementsByClassName('card open show');
+  console.log(card);
+  if(card[0].firstElementChild.classList.value==card[1].firstElementChild.classList.value)
+    {
+      //adding  match class
+      card[0].classList ='card match';
+      card[0].classList ='card match';
+  }
+  else{
+    card[0].classList ='card';
+    card[0].classList ='card';}
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
