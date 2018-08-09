@@ -9,7 +9,16 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-
+//Reset funstion that calls Shuffle
+function reset(){
+const fragment = document.createDocumentFragment();
+var nodesArray = shuffle([].slice.call(document.querySelectorAll('.card')));
+for (let i = 0; i < nodesArray.length; i++)
+{
+fragment.appendChild(nodesArray[i])};
+deck.innerHTML ='';
+deck.appendChild(fragment);
+}
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
