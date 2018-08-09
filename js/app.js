@@ -41,6 +41,8 @@ function shuffle(array) {
 const deck =document.querySelector('.deck');
 //adding eventListener to code to flip cards
 deck.addEventListener('click', function	(e){flip(e); limiter();});
+//adding eventListener to the repeat button
+icon.addEventListener('click',reset)
 
 // flip card function
 // Adds class open and show
