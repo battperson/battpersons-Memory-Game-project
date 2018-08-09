@@ -9,6 +9,9 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+//creating the repeat icon variable
+const icon = document.querySelector('.fa-repeat');
+
 //Reset funstion that calls Shuffle
 function reset(){
 const fragment = document.createDocumentFragment();
