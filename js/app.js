@@ -102,6 +102,7 @@ function compare() {
       //adding  match class
       card[0].classList ='card match';
       card[0].classList ='card match';
+      win();
   }
   else{
     unflip();
@@ -111,16 +112,9 @@ function compare() {
 }
 //win function for end of Game
 function win(){
-   for (i=0;i<deck.children.length; i++){
-     if(deck.children[i].classList.contains('match')){
-         congrats++;
-       };
-     };
-     if(congrats==16){
-       for (i=0;i<deck.children.length; i++){
-       deck.children[i].classList.toggle('shake');
-     };
-   }
+  if(document.getElementsByClassName('card match').length==16){
+  for (i=0;i<deck.children.length; i++){
+         deck.children[i].classList.toggle('shake')}}
  }
 /*
  * set up the event listener for a card. If a card is clicked:
