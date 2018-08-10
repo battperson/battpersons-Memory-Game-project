@@ -13,9 +13,10 @@
  let counting = 0;
 //creating the repeat icon variable
 const icon = document.querySelector('.fa-repeat');
+//declare moves variable
+const moves = document.getElementsByClassName('moves');
 //couting functions
 function count(){
-const moves = document.getElementsByClassName('moves');
 counting++;
 moves[0].innerText= counting;}
 //Reset funstion that calls Shuffle
