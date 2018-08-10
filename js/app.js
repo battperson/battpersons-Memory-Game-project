@@ -9,6 +9,8 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+ //creating the counting variable
+ let counting = 0;
 //creating the repeat icon variable
 const icon = document.querySelector('.fa-repeat');
 
@@ -48,14 +50,16 @@ icon.addEventListener('click',reset)
 // Adds class open and show
 function flip (e){
   const vas = e.path[0];
-  if(vas.classList.contains('card')){
+if(vas.classList== 'card'){
       e.target.classList.toggle('open');
       e.target.classList.toggle('show');
 }
 else if (vas.classList.contains('fa')) {
+if(vas.parentElement.classList== 'card'){
     vas.parentElement.classList.toggle('open');
     vas.parentElement.classList.toggle('show');
 
+}
 }
 }
 //declare card var
