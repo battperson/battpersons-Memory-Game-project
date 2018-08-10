@@ -9,12 +9,22 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+ //creating the Stars container variable
+ const stars = document.getElementsByClassName('stars')[0].children;
  //creating the counting variable
  let counting = 0;
 //creating the repeat icon variable
 const icon = document.querySelector('.fa-repeat');
 //declare moves variable
 const moves = document.getElementsByClassName('moves');
+//rating function
+function rating(){
+if(counting>8 && counting<12){
+stars[2].firstElementChild.classList='fa fa-star-o'
+}
+else if(counting>11){
+stars[1].firstElementChild.classList='fa fa-star-o'}
+}
 //couting functions
 function count(){
 counting++;
@@ -91,6 +101,7 @@ function compare() {
     unflip();
     }
     count();
+    rating();
 }
 /*
  * set up the event listener for a card. If a card is clicked:
