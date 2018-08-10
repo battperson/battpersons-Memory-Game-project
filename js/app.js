@@ -13,7 +13,11 @@
  let counting = 0;
 //creating the repeat icon variable
 const icon = document.querySelector('.fa-repeat');
-
+//couting functions
+function count(){
+const moves = document.getElementsByClassName('moves');
+counting++;
+moves[0].innerText= counting;}
 //Reset funstion that calls Shuffle
 function reset(){
 const fragment = document.createDocumentFragment();
@@ -83,6 +87,7 @@ function compare() {
   else{
     unflip();
     }
+    count();
 }
 /*
  * set up the event listener for a card. If a card is clicked:
