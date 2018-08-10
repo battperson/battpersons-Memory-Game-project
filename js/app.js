@@ -109,6 +109,19 @@ function compare() {
     count();
     rating();
 }
+//win function for end of Game
+function win(){
+   for (i=0;i<deck.children.length; i++){
+     if(deck.children[i].classList.contains('match')){
+         congrats++;
+       };
+     };
+     if(congrats==16){
+       for (i=0;i<deck.children.length; i++){
+       deck.children[i].classList.toggle('shake');
+     };
+   }
+ }
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
