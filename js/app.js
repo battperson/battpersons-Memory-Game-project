@@ -39,8 +39,10 @@ nodesArray[i].classList ='card';
 fragment.appendChild(nodesArray[i])};
 deck.innerHTML ='';
 deck.appendChild(fragment);
+//resets the move count
 counting=0;
 moves[0].innerText= counting;
+//resets the rating stars
 for(i=0; i<stars.length; i++){
 stars[i].firstElementChild.classList='fa fa-star'};
 }
