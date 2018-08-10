@@ -9,8 +9,6 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
- //create congrats variable for win function
- let congrats=0;
  //creating the Stars container variable
  const stars = document.getElementsByClassName('stars')[0].children;
  //creating the counting variable
