@@ -29,6 +29,8 @@ nodesArray[i].classList ='card';
 fragment.appendChild(nodesArray[i])};
 deck.innerHTML ='';
 deck.appendChild(fragment);
+counting=0;
+moves[0].innerText= counting;
 }
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
