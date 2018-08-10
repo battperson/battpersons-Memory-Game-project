@@ -19,10 +19,10 @@ const icon = document.querySelector('.fa-repeat');
 const moves = document.getElementsByClassName('moves');
 //rating function
 function rating(){
-if(counting>8 && counting<12){
+if(counting>11 && counting<17){
 stars[2].firstElementChild.classList='fa fa-star-o'
 }
-else if(counting>11){
+else if(counting>16){
 stars[1].firstElementChild.classList='fa fa-star-o'}
 }
 //couting functions
