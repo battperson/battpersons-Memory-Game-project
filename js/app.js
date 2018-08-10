@@ -41,6 +41,8 @@ deck.innerHTML ='';
 deck.appendChild(fragment);
 counting=0;
 moves[0].innerText= counting;
+for(i=0; i<stars.length; i++){
+stars[i].firstElementChild.classList='fa fa-star'};
 }
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
