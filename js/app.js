@@ -115,14 +115,11 @@ function win(){
   if(document.getElementsByClassName('card match').length==16){
   for (i=0;i<deck.children.length; i++){
          deck.children[i].classList.toggle('shake')}
-<<<<<<< HEAD
          const message =document.createElement('div');
          message.innerHTML='<h1>Congratulations you have slayed the Dragon!</h1>';
          document.querySelector('.container').appendChild(message);}
-=======
          for (var i = 1; i < 99999; i++)
           window.clearInterval(i);}
->>>>>>> timer
  }
  // timer function source: https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
 var minutesLabel = document.getElementById("minutes");
@@ -151,7 +148,6 @@ deck.addEventListener('click',function(e){
   setInterval(setTime, 1000);}
     if(e.currentTarget.dataset.triggered) return;
     e.currentTarget.dataset.triggered = true;
-
 });
 //reset clock functions
 function timerStop(){
