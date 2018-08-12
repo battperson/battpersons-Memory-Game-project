@@ -1,59 +1,60 @@
 /*
  * Create a list that holds all of your cards
  */
-
-
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
- //const theOne
- const winMess = document.getElementById('theOne');
- //creating the Stars container variable
- const stars = document.getElementsByClassName('stars')[0].children;
- //creating the counting variable
- let counting = 0;
+//const theOne
+const winMess = document.getElementById('theOne');
+//creating the Stars container variable
+const stars = document.getElementsByClassName('stars')[0].children;
+//creating the counting variable
+let counting = 0;
 //creating the repeat icon variable
 const icon = document.querySelector('.fa-repeat');
 //declare moves variable
 const moves = document.getElementsByClassName('moves');
 //rating function
-function rating(){
-if(counting>11 && counting<17){
-stars[2].firstElementChild.classList='fa fa-star-o'
-}
-else if(counting>16){
-stars[1].firstElementChild.classList='fa fa-star-o'}
+function rating() {
+    if (counting > 11 && counting < 17) {
+        stars[2].firstElementChild.classList = 'fa fa-star-o'
+    } else if (counting > 16) {
+        stars[1].firstElementChild.classList = 'fa fa-star-o'
+    }
 }
 //couting functions
-function count(){
-counting++;
-moves[0].innerText= counting;}
+function count() {
+    counting++;
+    moves[0].innerText = counting;
+}
 //Reset funstion that calls Shuffle
-function reset(){
-document.getElementById('theOne').style.display='none';
-const fragment = document.createDocumentFragment();
-var nodesArray = shuffle([].slice.call(document.querySelectorAll('.card')));
-for (let i = 0; i < nodesArray.length; i++)
-{
-nodesArray[i].classList ='card';
-fragment.appendChild(nodesArray[i])};
-deck.innerHTML ='';
-deck.appendChild(fragment);
-//resets the move count
-counting=0;
-moves[0].innerText= counting;
-//resets the rating stars
-for(i=0; i<stars.length; i++){
-stars[i].firstElementChild.classList='fa fa-star'};
-//calling timerStop
-timerStop();
+function reset() {
+    document.getElementById('theOne').style.display = 'none';
+    const fragment = document.createDocumentFragment();
+    var nodesArray = shuffle([].slice.call(document.querySelectorAll('.card')));
+    for (let i = 0; i < nodesArray.length; i++) {
+        nodesArray[i].classList = 'card';
+        fragment.appendChild(nodesArray[i])
+    };
+    deck.innerHTML = '';
+    deck.appendChild(fragment);
+    //resets the move count
+    counting = 0;
+    moves[0].innerText = counting;
+    //resets the rating stars
+    for (i = 0; i < stars.length; i++) {
+        stars[i].firstElementChild.classList = 'fa fa-star'
+    };
+    //calling timerStop
+    timerStop();
 }
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    var currentIndex = array.length,
+        temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -66,101 +67,108 @@ function shuffle(array) {
     return array;
 }
 //creating deck variable
-const deck =document.querySelector('.deck');
+const deck = document.querySelector('.deck');
 //adding eventListener to code to flip cards
-deck.addEventListener('click', function	(e){flip(e); limiter();});
+deck.addEventListener('click', function(e) {
+    flip(e);
+    limiter();
+});
 //adding eventListener to the repeat button
-icon.addEventListener('click',reset)
+icon.addEventListener('click', reset)
 
 // flip card function
 // Adds class open and show
-function flip (e){
-  const vas = e.path[0];
-if(vas.classList== 'card'){
-      e.target.classList.toggle('open');
-      e.target.classList.toggle('show');
-}
-else if (vas.classList.contains('fa')) {
-if(vas.parentElement.classList== 'card'){
-    vas.parentElement.classList.toggle('open');
-    vas.parentElement.classList.toggle('show');
+function flip(e) {
+    const vas = e.path[0];
+    if (vas.classList == 'card') {
+        e.target.classList.toggle('open');
+        e.target.classList.toggle('show');
+    } else if (vas.classList.contains('fa')) {
+        if (vas.parentElement.classList == 'card') {
+            vas.parentElement.classList.toggle('open');
+            vas.parentElement.classList.toggle('show');
 
-}
-}
+        }
+    }
 }
 //declare card var
-const card =document.getElementsByClassName('card open show');
+const card = document.getElementsByClassName('card open show');
 //unflip function
-function unflip(){
-  card[0].classList ='card';
-  card[0].classList ='card';
+function unflip() {
+    card[0].classList = 'card';
+    card[0].classList = 'card';
 }
 //preventing over 2 cards being fliped and running functions
-function limiter (){
-if(card.length ==2){setTimeout(compare,500)}}
+function limiter() {
+    if (card.length == 2) {
+        setTimeout(compare, 500)
+    }
+}
 // for loop and if to compar cards
 function compare() {
-  if(card[0].firstElementChild.classList.value==card[1].firstElementChild.classList.value)
-    {
-      //adding  match class
-      card[0].classList ='card match';
-      card[0].classList ='card match';
-      win();
-  }
-  else{
-    unflip();
+    if (card[0].firstElementChild.classList.value == card[1].firstElementChild.classList.value) {
+        //adding  match class
+        card[0].classList = 'card match';
+        card[0].classList = 'card match';
+        win();
+    } else {
+        unflip();
     }
     count();
     rating();
 }
 //win function for end of Game
-function win(){
-  if(document.getElementsByClassName('card match').length==16){
-  for (i=0;i<deck.children.length; i++){
-         deck.children[i].classList.toggle('shake')
-         }
-         for (var i = 1; i < 99999; i++){
-          window.clearInterval(i);}
-          winMess.style.display='block';
-          winMess.children[2].innerHTML='Move count: '+ moves[0].innerText;
-          winMess.children[4].innerHTML='Time: '+minutesLabel.innerHTML+':'+secondsLabel.innerHTML;
+function win() {
+    if (document.getElementsByClassName('card match').length == 16) {
+        for (i = 0; i < deck.children.length; i++) {
+            deck.children[i].classList.toggle('shake')
         }
- }
- // timer function source: https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
+        for (var i = 1; i < 99999; i++) {
+            window.clearInterval(i);
+        }
+        winMess.style.display = 'block';
+        winMess.children[2].innerHTML = 'Move count: ' + moves[0].innerText;
+        winMess.children[4].innerHTML = 'Time: ' + minutesLabel.innerHTML + ':' + secondsLabel.innerHTML;
+    }
+}
+// timer function source: https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
 var totalSeconds = 0;
 
 
 function setTime() {
-  ++totalSeconds;
-  secondsLabel.innerHTML = pad(totalSeconds % 60);
-  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+    ++totalSeconds;
+    secondsLabel.innerHTML = pad(totalSeconds % 60);
+    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
 }
 
 function pad(val) {
-  var valString = val + "";
-  if (valString.length < 2) {
-    return "0" + valString;
-  } else {
-    return valString;
-  }
+    var valString = val + "";
+    if (valString.length < 2) {
+        return "0" + valString;
+    } else {
+        return valString;
+    }
 }
 
 //  run eventListener once code source: https://stackoverflow.com/questions/36312249/js-equivalent-for-jquery-one
-deck.addEventListener('click',function(e){
-  if(secondsLabel.innerHTML==0){e.currentTarget.dataset.triggered = false;
-  setInterval(setTime, 1000);}
-    if(e.currentTarget.dataset.triggered) return;
+deck.addEventListener('click', function(e) {
+    if (secondsLabel.innerHTML == 0) {
+        e.currentTarget.dataset.triggered = false;
+        setInterval(setTime, 1000);
+    }
+    if (e.currentTarget.dataset.triggered) return;
     e.currentTarget.dataset.triggered = true;
 });
 //reset clock functions
-function timerStop(){
-for (var i = 1; i < 99999; i++){
-        window.clearInterval(i);}
-secondsLabel.innerHTML = '00';
-  minutesLabel.innerHTML ='00';
-  totalSeconds=0;
+function timerStop() {
+    for (var i = 1; i < 99999; i++) {
+        window.clearInterval(i);
+    }
+    secondsLabel.innerHTML = '00';
+    minutesLabel.innerHTML = '00';
+    totalSeconds = 0;
 }
 /*
  * set up the event listener for a card. If a card is clicked:
