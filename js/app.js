@@ -45,6 +45,8 @@ moves[0].innerText= counting;
 //resets the rating stars
 for(i=0; i<stars.length; i++){
 stars[i].firstElementChild.classList='fa fa-star'};
+//calling timerStop
+timerStop();
 }
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -112,8 +114,47 @@ function compare() {
 function win(){
   if(document.getElementsByClassName('card match').length==16){
   for (i=0;i<deck.children.length; i++){
-         deck.children[i].classList.toggle('shake')}}
+         deck.children[i].classList.toggle('shake')}
+         for (var i = 1; i < 99999; i++)
+          window.clearInterval(i);}
  }
+ // timer function source: https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
+var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
+
+
+function setTime() {
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds % 60);
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
+
+//  run eventListener once code source: https://stackoverflow.com/questions/36312249/js-equivalent-for-jquery-one
+deck.addEventListener('click',function(e){
+  if(secondsLabel.innerHTML==0){e.currentTarget.dataset.triggered = false;
+  setInterval(setTime, 1000);}
+    if(e.currentTarget.dataset.triggered) return;
+    e.currentTarget.dataset.triggered = true;
+
+});
+//reset clock functions
+function timerStop(){
+for (var i = 1; i < 99999; i++){
+        window.clearInterval(i);}
+secondsLabel.innerHTML = '00';
+  minutesLabel.innerHTML ='00';
+  totalSeconds=0;
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
