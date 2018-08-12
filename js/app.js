@@ -114,12 +114,14 @@ function compare() {
 function win(){
   if(document.getElementsByClassName('card match').length==16){
   for (i=0;i<deck.children.length; i++){
-         deck.children[i].classList.toggle('shake')}
-         const message =document.createElement('div');
-         message.innerHTML='<h1>Congratulations you have slayed the Dragon!</h1>';
-         document.querySelector('.container').appendChild(message);}
-         for (var i = 1; i < 99999; i++)
+         deck.children[i].classList.toggle('shake')
+         }
+         for (var i = 1; i < 99999; i++){
           window.clearInterval(i);}
+          const message =document.createElement('div');
+          message.innerHTML='<h1>Congratulations you have slayed the Dragon!</h1>';
+          document.querySelector('.container').appendChild(message);
+        }
  }
  // timer function source: https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
 var minutesLabel = document.getElementById("minutes");
