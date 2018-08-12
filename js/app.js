@@ -112,7 +112,10 @@ function compare() {
 function win(){
   if(document.getElementsByClassName('card match').length==16){
   for (i=0;i<deck.children.length; i++){
-         deck.children[i].classList.toggle('shake')}}
+         deck.children[i].classList.toggle('shake')}
+         const message =document.createElement('div');
+         message.innerHTML='<h1>Congratulations you have slayed the Dragon!</h1>';
+         document.querySelector('.container').appendChild(message);}
  }
 /*
  * set up the event listener for a card. If a card is clicked:
