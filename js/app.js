@@ -9,6 +9,8 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+ //const theOne
+ const winMess = document.getElementById('theOne');
  //creating the Stars container variable
  const stars = document.getElementsByClassName('stars')[0].children;
  //creating the counting variable
@@ -31,6 +33,7 @@ counting++;
 moves[0].innerText= counting;}
 //Reset funstion that calls Shuffle
 function reset(){
+document.getElementById('theOne').style.display='none';
 const fragment = document.createDocumentFragment();
 var nodesArray = shuffle([].slice.call(document.querySelectorAll('.card')));
 for (let i = 0; i < nodesArray.length; i++)
@@ -118,9 +121,9 @@ function win(){
          }
          for (var i = 1; i < 99999; i++){
           window.clearInterval(i);}
-          const message =document.createElement('div');
-          message.innerHTML='<h1>Congratulations you have slayed the Dragon!</h1>';
-          document.querySelector('.container').appendChild(message);
+          winMess.style.display='block';
+          winMess.children[2].innerHTML='Move count: '+ moves[0].innerText;
+          winMess.children[4].innerHTML='Time: '+minutesLabel.innerHTML+':'+secondsLabel.innerHTML;
         }
  }
  // timer function source: https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript

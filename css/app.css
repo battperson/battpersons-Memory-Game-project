@@ -81,7 +81,9 @@ h1 {
     background: #02ccba;
     font-size: 33px;
 }
-
+#theOne{
+  display: none;
+}
 /*
  * Styles for the Score Panel
  */
